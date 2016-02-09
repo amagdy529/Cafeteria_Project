@@ -6,8 +6,18 @@
 	<title>Add product</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="css/bootstrap.min.css">
-	<script src="js/bootstrap.min.js"></script>
 	
+<!--	
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/jquery-1.11.2.js"></script>
+	<script type="js/code.js"></script>
+-->	
+
+<!-- ana 7atet <script><link> 3shan el library bta3tna mnf3tsh m3 el modal mesh 3arf leeh -->
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
   </head>
 	<body>
 		<div class="container">
@@ -40,6 +50,7 @@
 			      </a></li>
 				</ul>
 			     </div>
+			     
 			<div class="row" style="margin-top:15px;">
         	<div class="col-sm-12">
             	<div class="panel panel-info">
@@ -67,10 +78,20 @@
                       </div>
 
                        <div class="form-group">
-                        <label for="pcategory">Category</label>
-                        <select class="form-control"    id="pcategory"  name="pcategory"   >
-			</select>
-			<a href="#">add category</a>
+                    	    <label for="pcategory">Category</label>
+                    	    <select class="form-control"    id="pcategory"  name="pcategory"   >
+								<option>tea</option>
+								<option>Coffee</option>
+								<option>Cappucciono</option>
+							</select>
+						<button  type="button" class="btn btn-primary" data-toggle="modal" data-target="#my-modal">
+            				Add Category &raquo;
+            			</button>
+          					
+
+
+						<!--  	<a href="#">add category</a>  -->
+                       
                       </div>
                       
                       <div class="form-group">
@@ -78,11 +99,39 @@
                         <input type="file" class="form-control"   id="pic"  name="pic"   >
                       </div>
 
-                      <button type="submit" name="save_btn" class="btn btn-info pull-center">Save</button>
-                      <button type="reset" name="save_btn" class="btn btn-info pull-center">Reset</button>
+                      <button type="submit" name="save_btn" class="btn btn-primary pull-center">Save</button>
+                      <button type="reset" name="save_btn"  class="btn btn-primary pull-center">Reset</button>
 
 			</form>
-			</div>
+			</div>  <!-- end panel body -->
+
+
+    <!-- Modal -->
+    <div  id="my-modal" class="modal" data-keyboard = "true" >
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" ><span >&times;</span></button>
+            <h4 class="modal-title">Adding Category</h4>
+
+
+          </div>
+          <div class="modal-body">
+            <p>What Category do you want to add ?</p>
+            <input type="text" class="form-control " value="category name" >
+          </div>
+          <div class="modal-footer">
+            <button class="btn btn-success">Add</button>
+            <button class="btn btn-danger" data-dismiss="modal">Cancel</button>
+          </div>
+        </div>        
+      </div>
+    </div>
+
+	  <div class="panel-footer ">footer</div>
+	  </div>
+
+
 		</div>
 	</body>
 	</html>
