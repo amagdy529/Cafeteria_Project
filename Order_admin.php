@@ -39,24 +39,18 @@
 				
 			    
 				</ul>
-					
-					<table class="nav navbar-nav navbar-right">
-						<tr>
-							<td>
-								<div class="nav navbar-nav navbar-right" >
-								<img class="  img-circle" width="90" height="90" 
-								src="img/user.png"  alt="profile pic" style="text-align:left" class="img-circle">
-								
-							</td>
-							<td style="margin:25px">
-								<div class="nav navbar-nav navbar-right"><a href="#" style="margin:20px
-								 ;text-align:center"><h4> ahmed magdy</h4> </a></div>
-								</div>
-			
-							</td>
-						</tr>
-					</table>
-			     
+
+                <div class="nav navbar-nav navbar-right" >
+                <img class="  img-circle" width="90" height="90" 
+                src="img/user.png"  alt="profile pic" 
+                style="text-align:left; " 
+                class="img-circle">
+          
+                <div class="nav navbar-nav navbar-right"><a href="#" >
+                <h4 style="margin:10px; margin-top:40px"> ahmed magdy</h4> </a></div>
+                </div>
+      
+
 			     </div> <!-- end div navbar  -->
 
 <!-- - - -  end navbar - - - - - - -->
@@ -74,7 +68,7 @@
  						   <input class="form-control" type="text" placeholder="Search">
 						   <button class="btn btn-success-outline" type="submit">Search</button>
 						  </form>
-				  </div>		 <!-- row 1 (row with search ) --> 					
+		</div>		 <!-- row 1 (row with search ) --> 					
 				
 				    	
 <div class="row" style="margin-top:15px;">  <!-- start row 2 (row of products) -->
@@ -87,10 +81,10 @@
   					<input type="number" class="form-control" >
   				</div>
   				<div style="float:right">
-  					<label style="margin-right:20px">25 EGP </label> 
-  					<a href="#">
-  					<img src="img/remove.png" width="30" height="30" style="margin-right:20px"> 
-  					</a>
+  					<label style="margin-right:20px">25 EGP </label>
+            <a href="#">  
+            <img src="img/remove.png" width="30" height="30" style="margin-right:20px"> 
+  				  </a>	
   				</div>
   		</div>
 
@@ -100,8 +94,8 @@
   				</div>
   				<div style="float:right">
   					<label style="margin-right:20px">25 EGP </label> 
-  					<a href="#">
-  					<img src="img/remove.png" width="30" height="30" style="margin-right:20px"> 
+            <a href="#">
+            <img src="img/remove.png" width="30" height="30" style="margin-right:20px"> 
   					</a>
   				</div>
   		</div>
@@ -137,24 +131,24 @@
 
 
   <div class="col-xs-9 col-lg-9" >
-    <h3> <span class="label label-default">Latest Orders</span></h3>
-    <div class="row" style="margin-top:25px" >
+    <h3 style="margin-left:90px"> <span class="label label-default"  >Add to user</span></h3>
+    
+    <div class="row" style="margin-top:25px ; " >
         
-        <div class="col-lg-3">
-          <img class="img-rounded" src="img/Cup.png" alt="a cup of fucken coffee" width="100" height="100">
-          <h3>Coffee</h3>
-          <p> would u like to drink a cup of fucken coffee</p>
-          <p><a class="btn btn-default" href="#" role="button">buy &raquo;</a></p>
-        </div><!-- /.col-lg-4 -->
-      
-        <div class="col-lg-3">
-          <img class="img-rounded" src="img/Tea.png" alt="a cup of fucken coffee" width="100" height="100">
-          <h3>Tea </h3>
-          <p> would u like to drink a cup of fucken coffee</p>
-          <p><a class="btn btn-default" href="#" role="button">buy &raquo;</a></p>
-        </div><!-- /.col-lg-4 -->
+        <div class="col-lg-3"></div>  
+  
+  <div class="col-lg-6"  >
+
+       <select class="form-control">
+             <option value="user 1">khaled hoza</option>
+             <option value="user 2">ahmed alaa</option>
+             <option value="user 3">ahmed magdy</option>
+             <option value="user 4">hamada bel-ganzabeel</option>
+       </select>
       
 
+
+  </div>
     </div><!-- end.row 1 -->
 
         <div class="row" style="margin-top:30px">

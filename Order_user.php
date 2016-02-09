@@ -87,10 +87,8 @@
   					<input type="number" class="form-control" >
   				</div>
   				<div style="float:right">
-  					<label style="margin-right:20px">25 EGP </label> 
-  					<a href="#">
-  					<img src="img/remove.png" width="30" height="30" style="margin-right:20px"> 
-  					</a>
+  					<label style="margin-right:20px">25 EGP </label> <img src="img/remove.png" width="30" height="30" style="margin-right:20px"> 
+  					
   				</div>
   		</div>
 
@@ -99,10 +97,8 @@
   					<input type="number" class="form-control" >
   				</div>
   				<div style="float:right">
-  					<label style="margin-right:20px">25 EGP </label> 
-  					<a href="#">
-  					<img src="img/remove.png" width="30" height="30" style="margin-right:20px"> 
-  					</a>
+  					<label style="margin-right:20px">25 EGP </label> <img src="img/remove.png" width="30" height="30" style="margin-right:20px"> 
+  					
   				</div>
   		</div>
 
