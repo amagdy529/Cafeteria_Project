@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+
+<meta charset="UTF-8">
+	<title>Login</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+        <script src="js/jquery-1.11.2.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	
+  </head>
+  <body>
+
+<div class="container">
+<h1 align="center">Cafeteria</h1>
+
+<br/>
+<form class="form-horizontal" action="" method="post">
+  <div class="form-group">
+    <label for="inputEmail3" class="col-sm-2 control-label">Email</label>
+    <div class="col-sm-10">
+      <input type="email" class="form-control" id="inputEmail3" placeholder="Email" required>
+    </div>
+  </div>
+<br/>
+  <div class="form-group">
+    <label for="inputPassword3" class="col-sm-2 control-label">Password</label>
+    <div class="col-sm-10">
+      <input type="password" class="form-control" id="inputPassword3" placeholder="Password" required>
+    </div>
+  </div>
+<br/>
+  
+  <div class="form-group">
+    <div class="col-sm-offset-2 col-sm-10">
+      <button align="center" type="submit" class="btn btn-default">Login</button>
+    </div>
+  </div>
+<br/>
+<div class="form-group">
+    <div class="col-sm-offset-2 col-sm-10">
+      <div >
+        <label>
+          <a>  Forget Password  </a>
+        </label>
+      </div>
+    </div>
+  </div>
+</form>
+
+</div>
+</body>
+</html>
