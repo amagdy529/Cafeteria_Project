@@ -50,7 +50,7 @@
                     <h1 class="panel-title">AddUser</h1>
                   </div>
                   <div class="panel-body">
-                    	<form method="" action="adduser.php" enctype="multipart/form-data" method="post">
+                    	<form method="" action="adduser2.php" enctype="multipart/form-data" method="post">
                       <div class="form-group">
                         <label for="fname"> Name</label>
                         <input type="text" class="form-control"   name="fname" placeholder="Enter Your  name" required>
@@ -72,15 +72,27 @@
 			placeholder="Enter Your Confirm Password"  >
                       </div>
                       
-                     <div class="form-group">
-                        <label for="fname"> Room No</label>
-			<select name="sel">
-						
+                     <div class="form-group row col-xs-3 col-lg-3">
+                        <label for="Room no"> Room No</label>
+			<!--
+       <select name="sel">
+						<option>room1</option>
 			</select>
+      -->
+                      <select class="form-control" name="roomNo">
+                           <option value="room 1">room 1</option>
+                           <option value="room 2">room 2</option>
+                           <option value="room 3">room 3</option>
+                           <option value="room 4">room 4</option>
+                      </select>
+
+
+
                       </div>
                      
-                      <div class="form-group">
-                        <label for="fname"> Ext</label>
+                      <div class="form-group row">
+
+                        <label for="Ext"> Ext</label>
                         <input type="text" class="form-control"  required name="ext" placeholder="Enter Your Ext">
                       </div>
 
