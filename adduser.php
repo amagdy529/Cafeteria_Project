@@ -51,6 +51,9 @@
                   </div>
                   <div class="panel-body">
                     	<form method="" action="adduser.php" enctype="multipart/form-data" method="post">
+                  <div class="well">
+                    	<form action="adduser.php" enctype="multipart/form-data" method="post" onsubmit="return validate()">
+
                       <div class="form-group">
                         <label for="fname"> Name</label>
                         <input type="text" class="form-control"   name="fname" placeholder="Enter Your  name" required>
@@ -72,25 +75,23 @@
 			placeholder="Enter Your Confirm Password"  >
                       </div>
                       
-                     <div class="form-group row col-xs-3 col-lg-3">
+                     <div class="form-group ">
                         <label for="Room no"> Room No</label>
-			<!--
-       <select name="sel">
-						<option>room1</option>
-			</select>
-      -->
+			
                       <select class="form-control" name="roomNo">
-                           <option value="room 1">room 1</option>
-                           <option value="room 2">room 2</option>
-                           <option value="room 3">room 3</option>
-                           <option value="room 4">room 4</option>
+                           <?php
+				include_once 'database/DataBase_Class.php';
+				$conobj = db::getInstance();
+				$conobj->setTable("rooms") ;
+				$res = $conobj->select_all();
+				while($qrow = mysqli_fetch_assoc($res)){
+				echo "<option value=".$qrow['room_no'].">".$qrow['room_no']."</option>";
+				}
+			?>
                       </select>
-
-
-
                       </div>
                      
-                      <div class="form-group row">
+                      <div class="form-group ">
 
                         <label for="Ext"> Ext</label>
                         <input type="text" class="form-control"  required name="ext" placeholder="Enter Your Ext">
@@ -107,6 +108,56 @@
 		</form>
 	
 		</div>
+<script>
+var pass = document.getElementsByName('password')[0];
+var cpass = document.getElementsByName('cpassword')[0];
+if(pass == cpass){
+return true;
+}else{
+return false;
+}
+</script>
 	</body>
 </html>
+
+
+<?php include_once 'database/DataBase_Class.php';
+$name = $_POST['fname'];
+$email = $_POST['email'];
+$password = $_POST['password'];
+$room = $_POST['roomNo'];
+$ext = $_POST['ext'];
+$imgname = $_FILES['myfile']['name'];
+$upfile='/var/www/html/Cafeteria_Projects/img/'.$_FILES['myfile']['name'];
+$imgtemp = $_FILES['myfile']['tmp_name'];
+
+if(isset($name)){
+if ($_FILES['myfile']['error'] !== UPLOAD_ERR_OK) {
+   die("Upload failed with error code " . $_FILES['myfile']['error']);
+}
+
+$info = getimagesize($imgtemp);
+if ($info === FALSE) {
+   die("Unable to determine image type of uploaded file");
+}
+
+if (($info[2] !== IMAGETYPE_GIF) && ($info[2] !== IMAGETYPE_JPEG) && ($info[2] !== IMAGETYPE_PNG)) {
+   die("Not a gif/jpeg/png");
+}else{
+echo "entered";
+move_uploaded_file($imgtemp, $upfile);
+$conobj = db::getInstance();
+$conobj->setTable("customers") ;
+$arr['customer_name']=$name;
+$arr['Email']=$email;
+$arr['Password']=$password;
+$arr['room_no']=$room;
+$arr['EXT']=$ext;
+$arr['customer_image']=$upfile;
+//print_r($arr);
+$af_row = $conobj->insert($arr);
+echo $af_row;
+}
+}
+?>
 

@@ -152,73 +152,25 @@
       
 
     </div><!-- end.row 1 -->
-
-        <div class="row" style="margin-top:30px">
+	 <?php
+				include_once 'database/DataBase_Class.php';
+				$conobj = db::getInstance();
+				$conobj->setTable("products") ;
+				$res = $conobj->select_all();
+				$row=0;
+				echo "<div class='col-xs-9 col-lg-9' >";
+				while($qrow = mysqli_fetch_assoc($res)){
+				if($row==0) echo "<div class='row' style='margin-top:25px'>";
+				echo "<div class=col-lg-3><img class='img-rounded' src=".$qrow['product_image']." width='100' height='100'>
+          			<h3>".$qrow['product_name']."</h3><p><a class='btn btn-default' >buy &raquo;</a></p></div>";	
+				$row++;	
+				if($row==4) {echo "</div>"; $row=0;}
+				}
+				echo "</div>";
+			?>
         
-        <div class="col-lg-3">
-          <img class="img-rounded" src="img/Cup.png" alt="a cup of fucken coffee" width="100" height="100">
-          <h3>Coffee</h3>
-          <p> would u like to drink a cup of fucken coffee</p>
-          <p><a class="btn btn-default" href="#" role="button">buy &raquo;</a></p>
-        </div><!-- /.col-lg-4 -->
-      
-        <div class="col-lg-3">
-          <img class="img-rounded" src="img/Tea.png" alt="a cup of fucken coffee" width="100" height="100">
-          <h3>Tea </h3>
-          <p> would u like to drink a cup of fucken coffee</p>
-          <p><a class="btn btn-default" href="#" role="button">buy &raquo;</a></p>
-        </div><!-- /.col-lg-4 -->
-      
-        <div class="col-lg-3">
-          <img class="img-rounded" src="img/Cup.png" alt="a cup of fucken coffee" width="100" height="100">
-          <h3>Coffee</h3>
-          <p> would u like to drink a cup of fucken coffee</p>
-          <p><a class="btn btn-default" href="#" role="button">buy &raquo;</a></p>
-        </div><!-- /.col-lg-4 -->
-      
-        <div class="col-lg-3">
-          <img class="img-rounded" src="img/Tea.png" alt="a cup of fucken coffee" width="100" height="100">
-          <h3>Tea </h3>
-          <p> would u like to drink a cup of fucken coffee</p>
-          <p><a class="btn btn-default" href="#" role="button">buy &raquo;</a></p>
-        </div><!-- /.col-lg-4 -->
-      
-
-    </div><!-- end.row 2 [] -->
-
-
-<div class="row" style="margin-top:25px"> <!-- start row 3 -->
         
-        <div class="col-lg-3">
-          <img class="img-rounded" src="img/Cup.png" alt="a cup of fucken coffee" width="100" height="100">
-          <h3>Coffee</h3>
-          <p> would u like to drink a cup of fucken coffee</p>
-          <p><a class="btn btn-default" href="#" role="button">buy &raquo;</a></p>
-        </div><!-- /.col-lg-4 -->
-      
-        <div class="col-lg-3">
-          <img class="img-rounded" src="img/Tea.png" alt="a cup of fucken coffee" width="100" height="100">
-          <h3>Tea </h3>
-          <p> would u like to drink a cup of fucken coffee</p>
-          <p><a class="btn btn-default" href="#" role="button">buy &raquo;</a></p>
-        </div><!-- /.col-lg-4 -->
-      
-        <div class="col-lg-3">
-          <img class="img-rounded" src="img/Cup.png" alt="a cup of fucken coffee" width="100" height="100">
-          <h3>Coffee</h3>
-          <p> would u like to drink a cup of fucken coffee</p>
-          <p><a class="btn btn-default" href="#" role="button">buy &raquo;</a></p>
-        </div><!-- /.col-lg-4 -->
-      
-        <div class="col-lg-3">
-          <img class="img-rounded" src="img/Tea.png" alt="a cup of fucken coffee" width="100" height="100">
-          <h3>Tea </h3>
-          <p> would u like to drink a cup of fucken coffee</p>
-          <p><a class="btn btn-default" href="#" role="button">buy &raquo;</a></p>
-        </div><!-- /.col-lg-4 -->
-      
-
-    </div><!-- end.row 3 [] -->
+       
 
 
   </div> <!-- end part2 -->
