@@ -50,7 +50,7 @@
                     <h1 class="panel-title">AddUser</h1>
                   </div>
                   <div class="panel-body">
-                    	<form method="" action="adduser2.php" enctype="multipart/form-data" method="post">
+                    	<form method="" action="adduser.php" enctype="multipart/form-data" method="post">
                       <div class="form-group">
                         <label for="fname"> Name</label>
                         <input type="text" class="form-control"   name="fname" placeholder="Enter Your  name" required>
@@ -102,7 +102,7 @@
                       </div>
 
                       <button type="submit" name="save_btn" class="btn btn-info pull-center">Save</button>
-                      <button type="reset" name="save_btn" class="btn btn-info pull-center">Reset</button>
+                      <button type="reset" name="reset_btn" class="btn btn-info pull-center">Reset</button>
 
 		</form>
 	

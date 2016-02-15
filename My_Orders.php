@@ -63,7 +63,12 @@
 				<div class="panel-heading" >My orders</div>
 				  <div class="panel-body">
 
-				      <div class= "row" style="text-align:right ; margin-right:8px;" > 
+				  	<div class="row" >
+				  		<input class="form-control" type="date" value="from">
+				  	</div>
+
+
+				      <div class= "row" style=" margin-right:8px;" > 
 				
 <table class="table table-striped">
   <thead>
@@ -76,27 +81,16 @@
   </thead>
   <tbody>
     <tr>
-      <th scope="row">1</th>
-      <td>Mark</td>
-      <td>Otto</td>
-      <td>@mdo</td>
-    </tr>
-    <tr>
-      <th scope="row">2</th>
-      <td>Jacob</td>
-      <td>Thornton</td>
-      <td>@fat</td>
-    </tr>
-    <tr>
-      <th scope="row">3</th>
-      <td>Larry</td>
-      <td>the Bird</td>
-      <td>@twitter</td>
+      
+      <td>10/2/2016</td>
+      <td>Delovered</td>
+      <td>20 EGP</td>
+      <td>Cancel</td>
     </tr>
   </tbody>
 </table>                                            
 
-         	    </div>		 <!-- row 1 (row with search ) --> 					
+         	    </div>		 <!-- row 2  --> 					
 				
 				    	
 				  </div> <!-- end body -->
