@@ -110,10 +110,15 @@
 
   		<div class="row" style="margin-top:25px">
   				Room <select class="form-control">
- 						 <option value="room 1">room 1</option>
- 						 <option value="room 2">room 2</option>
- 						 <option value="room 3">room 3</option>
- 						 <option value="room 4">room 4</option>
+ 						 <?php
+				include_once 'database/DataBase_Class.php';
+				$conobj = db::getInstance();
+				$conobj->setTable("rooms") ;
+				$res = $conobj->select_all();
+				while($qrow = mysqli_fetch_assoc($res)){
+				echo "<option value=".$qrow['room_no'].">".$qrow['room_no']."</option>";
+				}
+			?>
 					 </select>
   		</div>
 		<br>
