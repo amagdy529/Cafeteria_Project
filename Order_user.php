@@ -83,25 +83,41 @@
   <div class="col-xs-3 col-lg-3"> <!-- left side menu  -->
   	<form>
   		<div class="row" style="margin-top:25px">
-  				<div class="col-lg-6">
-  					<input type="number" class="form-control" >
-  				</div>
-  				<div style="float:right">
-  					<label style="margin-right:20px">25 EGP </label> <img src="img/remove.png" width="30" height="30" style="margin-right:20px"> 
-  					
-  				</div>
-  		</div>
-
-  		<div class="row" style="margin-top:25px">
-  				<div class="col-lg-6">
-  					<input type="number" class="form-control" >
-  				</div>
-  				<div style="float:right">
-  					<label style="margin-right:20px">25 EGP </label> <img src="img/remove.png" width="30" height="30" style="margin-right:20px"> 
-  					
+  				<div class="col-lg-2" style="margin-top:5px" style="float:left">
+              <label id="product_name">Tea</label>   
+          </div>
+          <div class="col-lg-3">
+                <input type="text" id="product_counter" class="form-control" />
+          </div>
+          <div class="col-lg-2" style="margin-bottom:0px">
+               <img src="img/plus.png" width="25" height="25">
+               <img src="img/minus2.png" width="25" height="25">
+          </div>
+  				<div class="col-lg-5" style="float:right">
+  					<label id="" style="margin-right:1px">25 EGP</label>
+            <img src="img/remove.png" width="30" height="30" > 
   				</div>
   		</div>
 
+       <div class="row" style="margin-top:25px">
+          <div class="col-lg-2" style="margin-top:5px" style="float:left">
+              <label id="product_name">Pepsi</label>   
+          </div>
+          <div class="col-lg-3">
+                <input type="text" id="product_counter" class="form-control" />
+          </div>
+          <div class="col-lg-2" style="margin-bottom:0px">
+               <img src="img/plus.png" width="25" height="25">
+               <img src="img/minus2.png" width="25" height="25">
+          </div>
+          <div class="col-lg-5" style="float:right">
+            <label id="" style="margin-right:1px">25 EGP</label>
+            <img src="img/remove.png" width="30" height="30" > 
+          </div>
+      </div>
+ 
+
+        		
 
   		<div class="row" style="margin-top:25px">
   				<h3> Notes </h3>
