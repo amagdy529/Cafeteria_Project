@@ -11,6 +11,8 @@
 	
   </head>
   <body>
+
+        
  <div class="container">
     	<!--  Nav Bar -->
         <nav class="navbar navbar-default">
@@ -49,13 +51,11 @@
                   <div class="panel-heading">
                     <h1 class="panel-title">AddUser</h1>
                   </div>
-<<<<<<< HEAD
                   <div class="panel-body">
-                    	<form method="" action="adduser.php" enctype="multipart/form-data" method="post">
-=======
+                    	<form method="post" action="adduser.php" enctype="multipart/form-data" method="post">
                   <div class="well">
                     	<form action="adduser.php" enctype="multipart/form-data" method="post" onsubmit="return validate()">
->>>>>>> 5d51c513caeee67fff71c5640f8950f7b123f817
+
                       <div class="form-group">
                         <label for="fname"> Name</label>
                         <input type="text" class="form-control"   name="fname" placeholder="Enter Your  name" required>
@@ -99,7 +99,7 @@
                         <input type="text" class="form-control"  required name="ext" placeholder="Enter Your Ext">
                       </div>
 
-		     <div class="form-group">
+		                  <div class="form-group">
                         <label for="file">Profie Picture</label>
                         <input type="file" class="form-control" required  name="myfile" >
                       </div>
@@ -130,7 +130,7 @@ $password = $_POST['password'];
 $room = $_POST['roomNo'];
 $ext = $_POST['ext'];
 $imgname = $_FILES['myfile']['name'];
-$upfile='/var/www/html/Cafeteria_Projects/img/'.$_FILES['myfile']['name'];
+$upfile='uploads/'.$_FILES['myfile']['name'];
 $imgtemp = $_FILES['myfile']['tmp_name'];
 
 if(isset($name)){
@@ -161,5 +161,7 @@ $af_row = $conobj->insert($arr);
 echo $af_row;
 }
 }
+
 ?>
+
 

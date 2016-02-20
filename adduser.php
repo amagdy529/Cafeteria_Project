@@ -1,9 +1,4 @@
 <!DOCTYPE html>
-<?php
-session_start(); 
-if(!isset($_SESSION['admin']) || empty($_SESSION['admin'])) {header('Location: login.php');}
-?>
-<!DOCTYPE html>
 <html lang="en">
   <head>
 
@@ -16,6 +11,8 @@ if(!isset($_SESSION['admin']) || empty($_SESSION['admin'])) {header('Location: l
 	
   </head>
   <body>
+
+        
  <div class="container">
     	<!--  Nav Bar -->
         <nav class="navbar navbar-default">
@@ -36,11 +33,11 @@ if(!isset($_SESSION['admin']) || empty($_SESSION['admin'])) {header('Location: l
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
               <ul class="nav navbar-nav">
-             <li ><a href="adminhome.php">Home |<span class="sr-only">(current)</span></a></li>
-				<li><a href="allproducts.php">Products</a></li>
-				<li><a href="users.php">Users</a></li>
-				<li><a href="Order_admin.php">Manual order</a></li>
-				<li><a href="checks.php">Checks</a></li>
+                <li ><a href="#">Home<span class="sr-only">(current)</span></a></li>
+                <li><a href="#">Products</a></li>
+                <li><a href="#">Users</a></li>
+                <li><a href="#">Manual Order</a></li>
+                <li><a href="#">Checks</a></li>
              <li><a class=" nav navbar-nav navbar-right" href="#">Admin
                 <img alt="Brand" src="logo.png">
               </a></li>
@@ -55,33 +52,29 @@ if(!isset($_SESSION['admin']) || empty($_SESSION['admin'])) {header('Location: l
                     <h1 class="panel-title">AddUser</h1>
                   </div>
                   <div class="panel-body">
-                    	<form method="" action="adduser.php" enctype="multipart/form-data" method="post">
+                    	<form method="post" action="adduser.php" enctype="multipart/form-data" method="post">
                   <div class="well">
-<<<<<<< HEAD
-                    	<form action="users.php" enctype="multipart/form-data" method="post" onsubmit="return validate()">
-=======
                     	<form action="adduser.php" enctype="multipart/form-data" method="post" onsubmit="return validate()">
 
->>>>>>> a8398b44841c561dd70e90c37a5c261419eb5139
                       <div class="form-group">
                         <label for="fname"> Name</label>
-                        <input type="text" class="form-control"   name="fname" placeholder="Enter his  name" required>
+                        <input type="text" class="form-control"   name="fname" placeholder="Enter Your  name" required>
                       </div>
                       
                        <div class="form-group">
                         <label for="fname"> Email</label>
-                        <input type="email" class="form-control"    name="email" placeholder="Enter his Email" required>
+                        <input type="email" class="form-control"    name="email" placeholder="Enter Your Email" required>
                       </div>
 
                        <div class="form-group">
                         <label for="password">Password</label>
-                        <input type="password" class="form-control"   required  id="password" placeholder="Enter his Password"  >
+                        <input type="password" class="form-control"   required  name="password" placeholder="Enter Your Password"  >
                       </div>
                       
                       <div class="form-group">
                         <label for="cpassword">Confirm Password</label>
-                        <input type="password" class="form-control"    id="cpassword" required
-			placeholder="Enter his Confirmed Password"  >
+                        <input type="password" class="form-control"    name="cpassword" required
+			placeholder="Enter Your Confirm Password"  >
                       </div>
                       
                      <div class="form-group ">
@@ -103,16 +96,10 @@ if(!isset($_SESSION['admin']) || empty($_SESSION['admin'])) {header('Location: l
                       <div class="form-group ">
 
                         <label for="Ext"> Ext</label>
-                        <input type="text" class="form-control"  required name="ext" placeholder="Enter his Ext">
+                        <input type="text" class="form-control"  required name="ext" placeholder="Enter Your Ext">
                       </div>
 
-			<div class="form-group ">
-
-                        <label for="Ext"> admin</label>
-                        <input type="text" class="form-control"  required name="admin" placeholder="Is he admin? y : n">
-                      </div>
-
-		     <div class="form-group">
+		                  <div class="form-group">
                         <label for="file">Profie Picture</label>
                         <input type="file" class="form-control" required  name="myfile" >
                       </div>
@@ -124,8 +111,8 @@ if(!isset($_SESSION['admin']) || empty($_SESSION['admin'])) {header('Location: l
 	
 		</div>
 <script>
-var pass = document.getElementById('password');
-var cpass = document.getElementById('cpassword');
+var pass = document.getElementsByName('password')[0];
+var cpass = document.getElementsByName('cpassword')[0];
 if(pass == cpass){
 return true;
 }else{
@@ -143,9 +130,8 @@ $password = $_POST['password'];
 $room = $_POST['roomNo'];
 $ext = $_POST['ext'];
 $imgname = $_FILES['myfile']['name'];
-$upfile='/var/www/html/Cafeteria_Projects/img/'.$_FILES['myfile']['name'];
+$upfile='uploads/'.$_FILES['myfile']['name'];
 $imgtemp = $_FILES['myfile']['tmp_name'];
-$admin=$_POST['admin'];
 
 if(isset($name)){
 if ($_FILES['myfile']['error'] !== UPLOAD_ERR_OK) {
@@ -170,10 +156,12 @@ $arr['Password']=$password;
 $arr['room_no']=$room;
 $arr['EXT']=$ext;
 $arr['customer_image']=$upfile;
-$arr['admin']=$admin;
+//print_r($arr);
+$af_row = $conobj->insert($arr);
+echo $af_row;
+}
+}
 
-$conobj->insert($arr);
-}
-}
 ?>
+
 
