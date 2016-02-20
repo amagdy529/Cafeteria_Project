@@ -93,9 +93,10 @@ class db{
         $query = explode(" ", $query);
         unset($query[count($query) - 2]);
         $query = implode(" ", $query);
-        $query.=" ORDER BY datetime DESC LIMIT 1";
+	trim($query);
+        $query.=" ORDER BY order_date DESC LIMIT 1";
 
-        $state = $this->dbconn->query(trim($query));
+        $state = $this->dbconn->query($query);
         if (!$state) {
             return $this->dbconn->error;
         }

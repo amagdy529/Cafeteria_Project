@@ -1,4 +1,9 @@
 <!DOCTYPE html>
+<?php
+session_start(); 
+if(!isset($_SESSION['admin']) || empty($_SESSION['admin'])) {header('Location: login.php');}
+?>
+<!DOCTYPE html>
 <html lang="en">
   <head>
 

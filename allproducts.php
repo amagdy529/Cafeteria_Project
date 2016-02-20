@@ -1,3 +1,8 @@
+<!DOCTYPE html>
+<?php
+session_start(); 
+if(!isset($_SESSION['admin']) || empty($_SESSION['admin'])) {header('Location: login.php');}
+?>
 <html>
 	<head>
 		<title>all products</title>
