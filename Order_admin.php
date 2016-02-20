@@ -191,8 +191,9 @@ $ret=$con->select($ar);
 while($id = mysqli_fetch_assoc($ret)){
 $custid = $id['customer_id'];
 }
+
 $notes=$_POST['notes'];
-	$total_price=$_POST['tot'];
+$total_price=$_POST['tot'];
    if(isset($_POST['confirm']))
 {
 $rmno=$_POST['roomno'];        
@@ -206,7 +207,20 @@ $arr['order_notes']=$notes;
 $arr['order_customer_id']= $custid;
 $arr['room']= $rmno;
 $af_row = $obj_order->insert($arr);
-echo $af_row;
+
+$order = db::getInstance();
+$order->setTable('orders');
+$odid=$order->select($arr);
+while($od = mysqli_fetch_assoc($odid)){
+$sendid = $od['order_id'];
+}
+
+$probj = db::getInstance();
+$probj->setTable('order_products');
+$pp['order_id']=$sendid;
+$pp['product']=;
+$pp['quantity']=;
+$probj->insert($pp);
 }
 ?>
 

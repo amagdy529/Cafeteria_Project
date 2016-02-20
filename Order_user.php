@@ -111,6 +111,7 @@ if(!isset($_SESSION['name']) || empty($_SESSION['name'])) {header('Location: log
                     </select>
                     <input type='submit' name='confirm' value='Confirm' class="btn btn-primary" ><br/>
                     <label id="total_price" name='total_price' class=" control-label">Total Price: 0</label>
+		<input id="tot" name="tot" value=0 type="hidden"/>
                 </form>
             </div>
             <div class="col-md-9 panel panel-default">
@@ -127,7 +128,6 @@ if(!isset($_SESSION['name']) || empty($_SESSION['name'])) {header('Location: log
 		$idcustomer= $conj->select_customerid($_SESSION['name']);
 		while($qrow = mysqli_fetch_assoc($idcustomer)){
 		$idc = $qrow['customer_id'];
-
 		}
                     $obj_order = db::getInstance();
                     $obj_order->setTable('orders');
@@ -138,12 +138,14 @@ if(!isset($_SESSION['name']) || empty($_SESSION['name'])) {header('Location: log
 
                    if ($last_order) {
                        $order_id = $last_order['order_id'];
-                        
+                        echo $order_id;//////////////////////////////////////
                         $obj_order_product = db::getInstance();
                         $obj_order_product->setTable('order_products');
-                       $order_products = $obj_order_product->select(array('order_id' => $order_id));
+			$ord['order_id']=$order_id;
+                       $order_products = $obj_order_product->select($ord);
                         $i = 1;
-                        while ($current_product = $order_products->fetch_assoc()) {
+                        while ($current_product = mysqli_fetch_assoc($order_products )) {
+			echo $current_product['quantity'];
                             ?>
                             <div class="col-md-3">
                                 <?php
@@ -222,10 +224,16 @@ if(!isset($_SESSION['name']) || empty($_SESSION['name'])) {header('Location: log
         </div>
 <?php
 $notes=$_POST['notes'];
-	$total_price=$_POST['total_price'];
+$rmno=$_POST['room'];
+	$total_price=$_POST['tot'];
    if(isset($_POST['confirm']))
 {
-		
+    $con  = db::getInstance();
+		$con->setTable('customers');
+		$idcustom= $con->select_customerid($_SESSION['name']);
+		while($qrow = mysqli_fetch_assoc($idcustom)){
+		$idcc = $qrow['customer_id'];
+		}
         
 	
         $obj_order = db::getInstance();
@@ -234,9 +242,23 @@ $arr['order_date']= date("Y-m-d");
 $arr['order_status']="processing";
 $arr['order_amount']=$total_price;
 $arr['order_notes']=$notes;
-$arr['order_customer_id']=$id['customer_id'];
+$arr['room']=$rmno;
+$arr['order_customer_id']=$idcc;
 $af_row = $obj_order->insert($arr);
-echo $af_row;
+
+$order = db::getInstance();
+$order->setTable('orders');
+$odid=$order->select($arr);
+while($od = mysqli_fetch_assoc($odid)){
+$sendid = $od['order_id'];
+}
+
+$probj = db::getInstance();
+$probj->setTable('order_products');
+$pp['order_id']=$sendid;
+$pp['product']=;
+$pp['quantity']=;
+$probj->insert($pp);
 }
 ?>
         <script>
@@ -289,6 +311,7 @@ echo $af_row;
                 }
                 var elem_order_price = document.getElementById("total_price");
                 elem_order_price.innerHTML = "Total Price: " + total_price;
+		$('#tot').val(total_price);
               }
            
             function add_amount( product_id, product_price) {
