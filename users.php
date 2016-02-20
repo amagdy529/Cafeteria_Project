@@ -28,12 +28,12 @@
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
               <ul class="nav navbar-nav">
-                <li ><a href="#">Home<span class="sr-only">(current)</span></a></li>
-                <li><a href="#">Products</a></li>
-                <li><a href="#">Users</a></li>
-                <li><a href="#">Manual Order</a></li>
-                <li><a href="#">Checks</a></li>
-             <li><a class=" nav navbar-nav navbar-right" href="#">Admin
+             			<li ><a href="adminhome.php">Home |<span class="sr-only">(current)</span></a></li>
+				<li><a href="allproducts.php">Products</a></li>
+				<li><a href="users.php">Users</a></li>
+				<li><a href="Order_admin.php">Manual order</a></li>
+				<li><a href="checks.php">Checks</a></li>
+             <li><a class=" nav navbar-nav navbar-right" href="adminhome.php">Admin
                 <img alt="Brand" src="logo.png">
               </a></li>
                 </ul>
@@ -48,7 +48,7 @@
 <br/>
 
   <div class="row text-center">
-        	<a href="" class="btn btn-info">Add New User</a>
+        	<a href="adduser.php" class="btn btn-info">Add New User</a>
             <br><br>
         </div>
         <table class="table text-center table-hover table-bordered">

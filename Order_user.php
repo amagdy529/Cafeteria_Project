@@ -34,8 +34,8 @@
 				
 			      	<li><a class=" nav navbar-nav navbar-left" href="#"><img alt="Brand" src="logo.png"></a></li>
 			      
-				<li ><a href="#">Home |<span class="sr-only">(current)</span></a></li>
-				<li><a href="#">My Orders</a></li>
+				<li ><a href="Order_user.php">Home |<span class="sr-only">(current)</span></a></li>
+				<li><a href="My_Orders.php">My Orders</a></li>
 				
 			    
 				</ul>

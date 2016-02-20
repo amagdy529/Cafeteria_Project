@@ -103,15 +103,20 @@
 
   		<div class="row" style="margin-top:25px">
   				<h3> Notes </h3>
-  				<textarea class="form-control" rows="7">write your notes in here </textarea>
+  				<textarea class="form-control" rows="7" placeholder="write your notes in here"> </textarea>
   		</div>
 
   		<div class="row" style="margin-top:25px">
   				Room <select class="form-control">
- 						 <option value="room 1">room 1</option>
- 						 <option value="room 2">room 2</option>
- 						 <option value="room 3">room 3</option>
- 						 <option value="room 4">room 4</option>
+ 						"<?php
+				include_once 'database/DataBase_Class.php';
+				$conobj = db::getInstance();
+				$conobj->setTable("rooms") ;
+				$res = $conobj->select_all();
+				while($qrow = mysqli_fetch_assoc($res)){
+				echo "<option value=".$qrow['room_no'].">".$qrow['room_no']."</option>";
+				}
+			?>"
 					 </select>
   		</div>
 		<br>
@@ -131,7 +136,7 @@
 
 
   <div class="col-xs-9 col-lg-9" >
-    <h3 style="margin-left:90px"> <span class="label label-default"  >Add to user</span></h3>
+    <h3 style="margin-left:90px"> <span class="label label-default" >Add to user</span></h3>
     
     <div class="row" style="margin-top:25px ; " >
         
@@ -140,10 +145,15 @@
   <div class="col-lg-6"  >
 
        <select class="form-control">
-             <option value="user 1">khaled hoza</option>
-             <option value="user 2">ahmed alaa</option>
-             <option value="user 3">ahmed magdy</option>
-             <option value="user 4">hamada bel-ganzabeel</option>
+            "<?php
+				include_once 'database/DataBase_Class.php';
+				$conobj = db::getInstance();
+				$conobj->setTable("cusromers") ;
+				$res = $conobj->select_all();
+				while($qrow = mysqli_fetch_assoc($res)){
+				echo "<option value=".$qrow['customer_name'].">".$qrow['customer_name']."</option>";
+				}
+			?>"
        </select>
       
 

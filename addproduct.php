@@ -40,11 +40,11 @@
 			    <!-- Collect the nav links, forms, and other content for toggling -->
 			    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 			      <ul class="nav navbar-nav">
-				<li ><a href="#">Home<span class="sr-only">(current)</span></a></li>
-				<li><a href="#">Products</a></li>
-				<li><a href="#">Users</a></li>
-				<li><a href="#">Manual Order</a></li>
-				<li><a href="#">Checks</a></li>
+				 <li ><a href="adminhome.php">Home |<span class="sr-only">(current)</span></a></li>
+				<li><a href="allproducts.php">Products</a></li>
+				<li><a href="users.php">Users</a></li>
+				<li><a href="Order_admin.php">Manual order</a></li>
+				<li><a href="checks.php">Checks</a></li>
 			     <li><a class=" nav navbar-nav navbar-right" href="#">Admin
 				<img alt="Brand" src="logo.png">
 			      </a></li>
@@ -58,7 +58,7 @@
                     <h1 class="panel-title">Add Product</h1>
                   </div>
                   <div class="panel-body">
-                    	<form method="post" action="" enctype="multipart/form-data" >
+                    	<form method="post" action="allproducts.php" enctype="multipart/form-data" >
                       <div class="form-group">
                         <label for="pname"> Product</label>
                         <input type="text" class="form-control"  required  id="pname" name="pname" placeholder="Enter Product Name">

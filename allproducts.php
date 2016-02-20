@@ -23,11 +23,11 @@
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
               <ul class="nav navbar-nav">
-                <li ><a href="#">Home<span class="sr-only">(current)</span></a></li>
-                <li><a href="#">Products</a></li>
-                <li><a href="#">Users</a></li>
-                <li><a href="#">Manual Order</a></li>
-                <li><a href="#">Checks</a></li>
+              <li ><a href="adminhome.php">Home |<span class="sr-only">(current)</span></a></li>
+				<li><a href="allproducts.php">Products</a></li>
+				<li><a href="users.php">Users</a></li>
+				<li><a href="Order_admin.php">Manual order</a></li>
+				<li><a href="checks.php">Checks</a></li>
              <li><a class=" nav navbar-nav navbar-right" href="#">Admin
                 <img alt="Brand" src="logo.png">
               </a></li>
@@ -43,7 +43,7 @@
 		<br/>
 
   	<div class="row text-center">
-        	<a href="" class="btn btn-info">Add Product</a>
+        	<a href="addproduct.php" class="btn btn-info">Add Product</a>
             <br><br>
         	</div>
        	 <table class="table text-center table-hover table-bordered">
@@ -58,7 +58,7 @@
 				$res = $conobj->select_all();
 				while($qrow = mysqli_fetch_assoc($res)){
 				echo "<tr><th>".$qrow['product_name']."</th><th>".$qrow['product_price']."</th><th>";
-				echo  "<img src='".$qrow['product_image']."'/></th><th>".$qrow['product_status']." <a>edit</a> <a>delete</a></th></tr>";
+				echo  "<img src='".$qrow['product_image']."'/></th><th>".$qrow['product_status']." <button  id=ed onclick='editfn(".$qrow['product_name'],$qrow['product_price'],$qrow['product_status'].")' >edit</button><form action=allproducts.php method=post ><button name=del type=submit value=".$qrow['product_name'].">delete</button></th></form></tr>";
 				}
 			?>
             </thead>
@@ -70,5 +70,10 @@
 		</table>
 	</form>
 	</div>
+<script>
+function editfn(name,price,status){
+
+}
+</script>
 	</body>
 </html>

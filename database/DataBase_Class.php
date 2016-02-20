@@ -6,7 +6,7 @@ require 'appconf.php';
  * this class contain all db functions
  */
 
-class db {
+class db{
 
     static $conn;
     private $dbconn;
@@ -16,7 +16,7 @@ class db {
      * static function to get instance of db
      * return type
      */
-    static function getInstance() {
+    public static function getInstance() {
         if (self::$conn == null) {
             self::$conn = new db();
         }
@@ -44,7 +44,7 @@ class db {
      * function to set table name
      * param type $table
      */
-    function setTable($table) {
+     function setTable($table) {
         $this->table = $table;
         
     }
@@ -55,7 +55,7 @@ class db {
      * return type
      */
      function insert($data) {
-        $query = "insert into $this->table set ";
+         $query = "insert into $this->table set ";
         foreach ($data as $col => $value) {
             $query .= $col . "= '" . $value . "', ";
         }
@@ -119,6 +119,25 @@ class db {
 
         return $result;
     }
+	 /**
+     * Select with Where conditions and limits
+     * param type $values
+     * return type
+     */
+    function select_limit($values,$offset,$lim) {
+        $query = "select * from " . $this->table . " where ";
+        foreach ($values as $key => $value) {
+            $query.=$key . " = '" . $value . "' and ";
+        }
+        $query = explode(" ", $query);
+        unset($query[count($query) - 2]);
+        $query = implode(" ", $query);
+	trim($query);
+	$query." limit ".$offset." , ".$lim."";
+        $result = $this->dbconn->query($query);
+
+        return $result;
+    }
   
    /**
      * Delete with Where conditions
@@ -179,7 +198,7 @@ class db {
      * select between two dates with where conditions
      */
     function select_date($datecol, $date_from, $date_to, $values) {
-        $query = "select * from " . $this->table . " where( " . $datecol . " between '" . $date_from . "' and '" . $date_to . "') and ";
+        $query = "select * from " . $this->table . " where( " . $datecol . " between STR_TO_DATE('" . $date_from . "','%Y-%m-%d') and 		STR_TO_DATE('" . $date_to . "','%Y-%m-%d')) and ";
         foreach ($values as $key => $value) {
             $query.=$key . " = '" . $value . "' and ";
         }
@@ -191,6 +210,37 @@ class db {
 
         return $result;
     }
+	/**
+     * select between two dates 
+     */
+    function select_bet_dates($datecol, $date_from, $date_to) {
+        $query = "select * from " . $this->table . " where " . $datecol . " between STR_TO_DATE('" . $date_from . "','%Y-%m-%d') and STR_TO_DATE('" . $date_to . "','%Y-%m-%d') ";
+
+        $result = $this->dbconn->query($query);
+
+        return $result;
+    }
+		//get customer name
+	function select_name($customerid){
+	$query = "select customer_name from customers where customer_id=".$customerid."";
+	 $result = $this->dbconn->query($query);
+        return $result; 
+	}
+
+	//get customer id
+	function select_customerid($customername){
+	$query = "select customer_id from customers where customer_name='".$customername."'";
+	 $result = $this->dbconn->query($query);
+        return $result; 
+	}
+
+	//select all oderes amount
+	function select_all_orders(){
+	$query = "SELECT SUM(order_amount) as total,order_customer_id from orders GROUP by order_customer_id";
+	$result = $this->dbconn->query($query);
+	 return $result;
+	} 
+
 
     /**
      * select query to get sumtion of specific colum and group by specific colum by where conditions
@@ -198,7 +248,7 @@ class db {
      */
 
      function select_sum($col_sum, $values, $col_group_by, $datecol, $date_from, $date_to) {
-       $query = "select sum(" . $col_sum . ") from " . $this->table . " where( " . $datecol . " between '" . $date_from . "' and '" . $date_to . "') and ";
+       $query = "select sum(" . $col_sum . ") as total from " . $this->table . " where " . $datecol . " between '" . $date_from . "' and '" . $date_to . "' and ";
         foreach ($values as $key => $value) {
             $query.=$key . " = '" . $value . "' and ";
         }
@@ -212,12 +262,49 @@ class db {
 
         return $result;
     }
+	//sum-where
+	function select_sum_wh($col_sum, $values, $col_group_by) {
+	       $query = "select sum(" . $col_sum . ")as total,".$col_group_by." from orders where ";
+		foreach ($values as $key => $value) {
+		    $query.=$key . " = '" . $value . "' and ";
+		}
+		$query = explode(" ", $query);
+		unset($query[count($query) - 2]);
+		$query = implode(" ", $query);
 
+		$query.=" group by " . $col_group_by;
+
+		$result = $this->dbconn->query(trim($query));
+
+		return $result;
+	    }
+	 /**
+     * select query to get sumtion of specific colum and group by specific colum by where conditions
+     * between specific date
+     */
+
+     function select_sum_col($date_from, $date_to) {
+       $query = "select sum(order_amount)as total,order_customer_id from orders where order_date between STR_TO_DATE('" . $date_from . "','%Y-%m-%d') and STR_TO_DATE('" . $date_to . "','%Y-%m-%d') GROUP BY order_customer_id";
+
+        $result = $this->dbconn->query($query);
+
+        return $result;
+    }
      /**
      * deconstractor to close connection
      */
+
+//count function
+	
+function count($colname,$val){
+$query = "select count(*) from ".$this->table." where ".$colname." = ".$val."";
+$result = $this->dbconn->query($query);
+return $result;
+}
+
     function __destruct() {
         mysqli_close($this->dbconn);
     }
 
 }
+?>
